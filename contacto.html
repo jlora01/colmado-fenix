@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es-DO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐦‍🔥</text></svg>" />
+  <script>try{var t=localStorage.getItem("cf-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <title>Colmado Fénix | Contacto y pruebas del incidente</title>
+  <meta name="description" content="Escríbenos, revisa las pruebas del borrado digital y encuéntranos en el mapa." />
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="toldo" aria-hidden="true"></div>
+    <nav class="nav wrap" aria-label="Principal">
+      <a class="logo" href="index.html" aria-label="Colmado Fénix, inicio">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#ffc93c"/>
+          <path d="M20 6c3 6 9 8 9 16a9 9 0 0 1-18 0c0-4 2-6 4-8 0 3 1 5 3 6-1-5 0-10 2-14z" fill="#ff2d95"/>
+          <path d="M20 20c2 2 4 4 4 7a4 4 0 0 1-8 0c0-3 2-4 4-7z" fill="#1a0b3d"/>
+        </svg>
+        Colmado Fénix
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Historia del misterio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto y pruebas</a></li>
+      </ul>
+      <div class="nav-tools">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema">☀️</button>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero hero-small">
+      <div class="wrap">
+        <h1 class="glitch" data-text="¿Sabes algo? Escríbenos.">¿Sabes algo? Escríbenos.</h1>
+        <p class="lead">Para pedidos, preguntas o pistas sobre quién dejó el USB. Respondemos el mismo día.</p>
+      </div>
+    </section>
+
+    <section class="section-alt" aria-labelledby="t-contacto">
+      <div class="wrap contact-grid">
+        <div>
+          <h2 id="t-contacto">Contacto</h2>
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" autocomplete="name" required minlength="2" />
+              <span class="error-msg" id="err-nombre"></span>
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono o WhatsApp</label>
+              <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="809-555-0123" required />
+              <span class="error-msg" id="err-telefono"></span>
+            </div>
+            <div class="field">
+              <label for="correo">Correo (opcional)</label>
+              <input id="correo" name="correo" type="email" autocomplete="email" />
+              <span class="error-msg" id="err-correo"></span>
+            </div>
+            <div class="field">
+              <label for="motivo">Motivo</label>
+              <select id="motivo" name="motivo" required>
+                <option value="">Elige uno</option>
+                <option>Hacer un pedido</option>
+                <option>Pregunta sobre un servicio</option>
+                <option>Tengo una pista del incidente</option>
+                <option>Otro</option>
+              </select>
+              <span class="error-msg" id="err-motivo"></span>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" required minlength="10"></textarea>
+              <span class="error-msg" id="err-mensaje"></span>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+            <div class="form-ok" id="form-ok" role="status"></div>
+          </form>
+        </div>
+
+        <div id="pruebas">
+          <h2>Pruebas del incidente</h2>
+          <p class="intro">Todo lo que encontramos después del borrado. Ábrelas y dinos si ves algo que se nos escapó.</p>
+          <div class="evidence">
+            <details open>
+              <summary>Registro del servidor <span>Prueba 1</span></summary>
+              <div class="body">
+<pre class="terminal" id="log-servidor">[2026-09-17 03:16:58] GET /index.html 200
+[2026-09-17 03:17:00] <span class="amar">LOGIN admin desde IP 0.0.0.0</span>
+[2026-09-17 03:17:02] <span class="rojo">DELETE /sitio/* (412 archivos)</span>
+[2026-09-17 03:17:03] <span class="rojo">DELETE dns.colmadofenix.do</span>
+[2026-09-17 03:17:04] <span class="amar">ESCRIBIR usb://leeme.txt</span>
+[2026-09-17 03:17:05] GET /index.html <span class="rojo">404</span>
+[2026-09-17 03:17:05] SESION CERRADA</pre>
+              </div>
+            </details>
+            <details>
+              <summary>Captura de las redes sociales <span>Prueba 2</span></summary>
+              <div class="body">
+<pre class="terminal">@colmadofenix
+<span class="rojo">Esta cuenta no existe.</span>
+Prueba buscar otra cosa.
+
+Seguidores antes: 1,800
+Seguidores después: 0</pre>
+              </div>
+            </details>
+            <details>
+              <summary>Propiedades del archivo del USB <span>Prueba 3</span></summary>
+              <div class="body">
+<pre class="terminal">Nombre:    leeme.txt
+Tamaño:    211 bytes
+Creado:    17/09/2026 03:17
+Autor:     <span class="amar">F.E.N.I.X.</span>
+Nota:      <span class="amar">"La clave está en el nombre"</span></pre>
+                <p>¿Quién firmaría como F.E.N.I.X.? Tal vez la palabra misma sea la pista.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion" aria-labelledby="t-ubicacion">
+      <div class="wrap contact-grid">
+        <div>
+          <h2 id="t-ubicacion">Dónde estamos</h2>
+          <div id="mapa" role="region" aria-label="Mapa de ubicación del colmado"></div>
+        </div>
+        <div>
+          <h2>Horario</h2>
+          <table class="horario">
+            <caption class="skip">Horario de atención</caption>
+            <thead><tr><th scope="col">Día</th><th scope="col">Hora</th></tr></thead>
+            <tbody>
+              <tr><td>Lunes a sábado</td><td>7:00 a.m. a 11:00 p.m.</td></tr>
+              <tr><td>Domingo</td><td>8:00 a.m. a 9:00 p.m.</td></tr>
+              <tr><td>Delivery</td><td>Hasta 30 minutos antes de cerrar</td></tr>
+            </tbody>
+          </table>
+          <p id="estado-abierto" class="contador" aria-live="polite"></p>
+          <a class="btn btn-primary" href="https://wa.me/18095550123" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p><strong>Colmado Fénix</strong>. Desaparecimos de Internet, no del barrio.</p>
+        <p>Calle Principal #17, Santo Domingo Este, República Dominicana.</p>
+        <p class="contador" id="contador"></p>
+      </div>
+      <div>
+        <p>Tel. y WhatsApp: (809) 555-0123</p>
+        <p>Proyecto académico. Negocio y datos ficticios.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>
